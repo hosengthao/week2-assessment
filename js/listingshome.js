@@ -1,3 +1,4 @@
+//test test test
 function myEmail(){
     let personEmail = document.getElementById("email").value;
     let charSymbol = false;
