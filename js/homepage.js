@@ -46,7 +46,6 @@ function myHouse() {
 }
 
 function renderHTML(data){
-    var htmlString = "";
     var ourHome = "0";
     var number = "";
     var ourInfo = "";
@@ -80,9 +79,11 @@ function renderHTML2(data){
     var imghome1 = '<img class="card-img-top" src="http://3.21.225.172:8080/api/' + ourInfo1.imageurl + '" style="width:100%">';
     var home1txt = '<p><b>' + ourHome1 + " square feet!</b></p><p><b>Listing Agent: </b>" + ourInfo1.listing + " " + ourInfo1.phone + "</p>";
 
+    console.log(ourInfo1.id);
     document.getElementById("imgHouse1").innerHTML= imghome1;
     document.getElementById("title1").innerHTML = '<h5 > ' + ourInfo1.street + ", " + ourInfo1.city + ", " + ourInfo1.state + " " + ourInfo1.zip + '</h5>';
     document.getElementById("house1").innerHTML= home1txt;
+    document.getElementById("button1").innerHTML= '<a href="' + ourInfo1.id + '.html" class="btn btn-primary" >See Listing</a>';
     }
 }
 function renderHTML3(data){
@@ -104,6 +105,7 @@ function renderHTML3(data){
         document.getElementById("imgHouse2").innerHTML= imghome2;
         document.getElementById("title2").innerHTML = '<h5 > ' + ourInfo2.street + ", " + ourInfo2.city + ", " + ourInfo2.state + " " + ourInfo2.zip + '</h5>';
         document.getElementById("house2").innerHTML= home2txt;
+        document.getElementById("button2").innerHTML= '<a href="' + ourInfo2.id + '.html" class="btn btn-primary" >See Listing</a>';
     }
 }
 function renderHTML4(data){
@@ -126,6 +128,7 @@ function renderHTML4(data){
         document.getElementById("imgHouse3").innerHTML= imghome3;
         document.getElementById("title3").innerHTML = '<h5 > ' + ourInfo3.street + ", " + ourInfo3.city + ", " + ourInfo3.state + " " + ourInfo3.zip + '</h5>';
         document.getElementById("house3").innerHTML= home3txt;
+        document.getElementById("button3").innerHTML= '<a href="' + ourInfo3.id + '.html" class="btn btn-primary" >See Listing</a>';
     }
 }
 window.onload = myHouse;
