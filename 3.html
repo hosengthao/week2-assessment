@@ -10,22 +10,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: auto auto auto;
-            background-color: #2196F3;
-            padding: 10px;
-        }
-
-        .grid-item {
-            background-color: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            font-size: 30px;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
 <!--header with nav bar nested-->
@@ -34,10 +18,10 @@
     <p class="p2 darkBlue"><i>We don't just sell houses, we sell homes!</i></p>
     <nav class="navbar navbar-expand-sm p2 navbar-dark rounded">
         <ul class="navbar-nav">
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="index.html">Home</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="listings.html">Listings</a>
             </li>
             <li class="nav-item">
@@ -47,23 +31,39 @@
     </nav>
 </div>
 
-<h2 class="text-center">Check out our current listings</h2>
-<!--here are the boxes for the square footage and search button-->
 <div class="container-fluid text-center">
-<form class="">
-    <label for="min">Min Price:</label>
-    <input type="text" id="min" name="min" value="">
-    <label for="max">Max Price:</label>
-    <input type="text" id="max" name="max" value="">
-    <input type="button" id="btnSearch" value="Search" onclick="update_data()">
-</form>
+    <h3 id="htmlTitle">Price</h3>
+    <h4 id="htmlAddress">Address here</h4>
+    <img src="http://3.21.225.172:8080/api/house-3.jpg">
+    <p id="htmlDetails">This is info about house id:1</p>
+    <p id="htmlLister"></p>
 </div>
 
-<div class="grid-container">
-    <div class="grid-item" id="records"></div>
-    <div class="grid-item" id="records1"></div>
-    <div class="grid-item" id="records2"></div>
-</div>
+<script>
+    function myHouse() {
+        var ourRequest = new XMLHttpRequest();
+        ourRequest.open('GET', 'http://3.21.225.172:8080/api/realestate/getByRowAmount?rows=12')
+        ourRequest.onload = function () {
+            const ourData = JSON.parse(ourRequest.responseText);
+            renderHTML(ourData);
+        };
+        ourRequest.send();
+    }
+
+    function renderHTML(data){
+        var htmlString = '<h4>' + data[2].street + ", " + data[2].city + ", " + data[2].state + " " + data[2].zip + '</h4>';
+        var htmlPhone = '<h6>Listed by: ' + data[2].listing + " Phone: " + data[2].phone + '</h6>';
+        var htmlInfo = '<h5>' + data[2].fname + " " + data[2].lname + "; Square Feet: " + data[2].sqft + "; Year Built: " + data[2].yrblt.slice(0,4) + "; Bedrooms: " + data[2].beds + "; Bathrooms: " + data[2].baths + '</h5>';
+        var htmlPrice = '<h3>$' + data[2].price + '</h3>';
+
+        document.getElementById("htmlTitle").innerHTML= htmlPrice;
+        document.getElementById("htmlAddress").innerHTML= htmlString;
+        document.getElementById("htmlDetails").innerHTML= htmlInfo;
+        document.getElementById("htmlLister").innerHTML= htmlPhone;
+    }
+    window.onload = myHouse();
+</script>
+
 
 <div class="container-fluid alignRight">
     <h3 class="">Join our email community</h3>
@@ -78,8 +78,6 @@
     <p class="" id="slide" style="display:none">thao.realty@gmail.com | 952.222.4444 | www.facebook.com/thaorealty</p>
 </div>
 
-
-<script src="js/listingshome.js"></script>
-
+<script src="js/indivlisting.js"></script>
 </body>
 </html>

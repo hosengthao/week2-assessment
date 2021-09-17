@@ -1,0 +1,33 @@
+.p1 {
+    font-family: "Times New Roman"
+}
+.p2 {
+    font-family: "Tahoma"
+}
+.jumbotron-color {
+    background-color:#EAF2D9;
+}
+.navbar {
+    background-color:#101E2D;
+}
+.orange {
+    background-color:#D85436;
+}
+body {
+    background-color:#D85436;
+}
+.lightBlue {
+    color:#3A6AA1;
+}
+.darkBlue {
+    color:#101E2D;
+}
+.alignRight {
+    display: flex;
+    justify-content: space-between;
+}
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
