@@ -17,3 +17,9 @@ function myEmail(){
         alert("Invalid Email Address")
     };
 }
+
+$(document).ready(function(){
+    $("#contactUs").click(function(){
+        $("#slide").slideToggle("slow");
+    });
+});

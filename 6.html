@@ -52,7 +52,7 @@
 
     function renderHTML(data){
         var htmlString = '<h4>' + data[5].street + ", " + data[5].city + ", " + data[5].state + " " + data[5].zip + '</h4>';
-        var htmlPhone = '<h6>Listed by: ' + data[5].listing + " Phone: " + data[5].phone + '</h6>';
+        var htmlPhone = '<h6 class="green">Listed by: ' + data[5].listing + " Phone: " + data[5].phone + '</h6>';
         var htmlInfo = '<h5>' + data[5].fname + " " + data[5].lname + "; Square Feet: " + data[5].sqft + "; Year Built: " + data[5].yrblt.slice(0,4) + "; Bedrooms: " + data[5].beds + "; Bathrooms: " + data[5].baths + '</h5>';
         var htmlPrice = '<h3>$' + data[5].price + '</h3>';
 
@@ -65,19 +65,18 @@
 </script>
 
 
-<div class="container-fluid alignRight">
+<div class="container-fluid alignRight" style="color:white">
     <h3 class="">Join our email community</h3>
     <h3 class="" id="contactUs">Contact Us</h3>
 </div>
-<div class="container-fluid alignRight">
+<div class="container-fluid alignRight" style="margin-bottom:25px">
     <form class="">
-        <label for="email">E-Mail:</label>
+        <label for="email" style="color:white">E-Mail:</label>
         <input type="text" id="email" name="email" value="">
         <input type="button" value="Accept" onclick="myEmail()">
     </form>
-    <p class="" id="slide" style="display:none">thao.realty@gmail.com | 952.222.4444 | www.facebook.com/thaorealty</p>
+    <p class="" id="slide" style="display:none; color:white">thao.realty@gmail.com | 952.222.4444 | www.facebook.com/thaorealty</p>
 </div>
-
 <script src="js/indivlisting.js"></script>
 </body>
 </html>

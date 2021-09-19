@@ -2,9 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Thao Realty</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/realty.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+<!--header with nav bar nested-->
+<div class="jumbotron jumbotron-color text-right">
+    <h1 class="p1 lightBlue">THAO REALTY</h1>
+    <p class="p2 darkBlue"><i>We don't just sell houses, we sell homes!</i></p>
+    <nav class="navbar navbar-expand-sm p2 navbar-dark rounded">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="listings.html">Listings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="aboutus.html">About Us</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 
+<div class="container-fluid text-center">
+    <h3 id="htmlTitle">Price</h3>
+    <h4 id="htmlAddress">Address here</h4>
+    <img src="http://3.21.225.172:8080/api/house-12.jpg">
+    <p id="htmlDetails">This is info about house id:1</p>
+    <p id="htmlLister"></p>
+</div>
+
+<script>
+    function myHouse() {
+        var ourRequest = new XMLHttpRequest();
+        ourRequest.open('GET', 'http://3.21.225.172:8080/api/realestate/getByRowAmount?rows=12')
+        ourRequest.onload = function () {
+            const ourData = JSON.parse(ourRequest.responseText);
+            renderHTML(ourData);
+        };
+        ourRequest.send();
+    }
+
+    function renderHTML(data){
+        var i = 11;
+        var htmlString = '<h4>' + data[i].street + ", " + data[i].city + ", " + data[i].state + " " + data[i].zip + '</h4>';
+        var htmlPhone = '<h6 class="green">Listed by: ' + data[i].listing + " Phone: " + data[i].phone + '</h6>';
+        var htmlInfo = '<h5>' + data[i].fname + " " + data[i].lname + "; Square Feet: " + data[i].sqft + "; Year Built: " + data[i].yrblt.slice(0,4) + "; Bedrooms: " + data[i].beds + "; Bathrooms: " + data[i].baths + '</h5>';
+        var htmlPrice = '<h3>$' + data[i].price + '</h3>';
+
+        document.getElementById("htmlTitle").innerHTML= htmlPrice;
+        document.getElementById("htmlAddress").innerHTML= htmlString;
+        document.getElementById("htmlDetails").innerHTML= htmlInfo;
+        document.getElementById("htmlLister").innerHTML= htmlPhone;
+    }
+    window.onload = myHouse();
+</script>
+
+
+<div class="container-fluid alignRight" style="color:white">
+    <h3 class="">Join our email community</h3>
+    <h3 class="" id="contactUs">Contact Us</h3>
+</div>
+<div class="container-fluid alignRight" style="margin-bottom:25px">
+    <form class="">
+        <label for="email" style="color:white">E-Mail:</label>
+        <input type="text" id="email" name="email" value="">
+        <input type="button" value="Accept" onclick="myEmail()">
+    </form>
+    <p class="" id="slide" style="display:none; color:white">thao.realty@gmail.com | 952.222.4444 | www.facebook.com/thaorealty</p>
+</div>
+<script src="js/indivlisting.js"></script>
 </body>
 </html>
