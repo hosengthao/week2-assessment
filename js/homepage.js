@@ -58,10 +58,11 @@ function renderHTML(data){
         } else {
             ourHome = ourHome;
         }
-        document.getElementById("featured2").innerHTML= '<a href="' + ourInfo.id + '.html"><img src="http://3.21.225.172:8080/api/' + ourInfo.imageurl + '"></a><br><p><b>$' + ourHome + "</b></p><p >" + ourInfo.street + ", " + ourInfo.city + ", " + ourInfo.state + " " + ourInfo.zip + " </p><p><b>Year built: </b>" + ourInfo.yrblt.slice(0,4) + " <b>Bathrooms: </b>" + ourInfo.baths + " <b>Bedrooms: </b>" + ourInfo.beds + "</p><p><b>Listing Agent: </b>" + ourInfo.listing + " " + ourInfo.phone + "</p>";
+        document.getElementById("featured2").innerHTML= '<a href="' + ourInfo.id + '.html"><img src="http://3.21.225.172:8080/api/' + ourInfo.imageurl + '"></a><br><h4><b>$' + ourHome + "</b></h4><p >" + ourInfo.street + ", " + ourInfo.city + ", " + ourInfo.state + " " + ourInfo.zip + " </p><p><b>Year built: </b>" + ourInfo.yrblt.slice(0,4) + " <b>Bathrooms: </b>" + ourInfo.baths + " <b>Bedrooms: </b>" + ourInfo.beds + "</p><p><b>Listing Agent: </b>" + ourInfo.listing + " " + ourInfo.phone + "</p>";
 
     }
 }
+
 
 function renderHTML2(data){
     var ourHome1 = "0";
@@ -132,3 +133,17 @@ function renderHTML4(data){
     }
 }
 window.onload = myHouse;
+
+$(document).ready(function () {
+    setImageOne();
+});
+
+function setImageOne() {
+    $('#imageSwap').fadeIn(500).html('<img src="https://t3.ftcdn.net/jpg/02/96/92/12/360_F_296921238_Qt3eB6C1QtqvKNt8FTLwe4F5H4lZLqpb.jpg" />').delay(2000).fadeOut(500, function () { setImageTwo(); });
+}
+
+function setImageTwo() {
+    $('#imageSwap').fadeIn(500).html('<img src="https://archello.s3.eu-central-1.amazonaws.com/images/2020/02/13/Classic-House-Interior-Design-4.1581603609.7419.jpg" style="width:45%; height:45%"/>').delay(2000).fadeOut(500, function () { setImageOne(); });
+}
+
+
