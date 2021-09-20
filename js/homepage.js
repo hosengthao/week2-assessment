@@ -64,7 +64,7 @@ function renderHTML(data){
         } else {
             ourHome = ourHome;
         }
-        document.getElementById("featured2").innerHTML= '<a href="' + ourInfo.id + '.html"><img src="http://3.21.225.172:8080/api/' + ourInfo.imageurl + '"></a><br><h4><b>$' + ourHome + "</b></h4><p >" + ourInfo.street + ", " + ourInfo.city + ", " + ourInfo.state + " " + ourInfo.zip + " </p><p><b>Year built: </b>" + ourInfo.yrblt.slice(0,4) + " <b>Bathrooms: </b>" + ourInfo.baths + " <b>Bedrooms: </b>" + ourInfo.beds + "</p><p><b>Listing Agent: </b>" + ourInfo.listing + " " + ourInfo.phone + "</p>";
+        document.getElementById("featured2").innerHTML= '<a href="' + ourInfo.id + '.html"><img  style="max-width:100%; height:auto" src="http://3.21.225.172:8080/api/' + ourInfo.imageurl + '"></a><br><h4><b>$' + ourHome + "</b></h4><p >" + ourInfo.street + ", " + ourInfo.city + ", " + ourInfo.state + " " + ourInfo.zip + " </p><p><b>Year built: </b>" + ourInfo.yrblt.slice(0,4) + " <b>Bathrooms: </b>" + ourInfo.baths + " <b>Bedrooms: </b>" + ourInfo.beds + "</p><p><b>Listing Agent: </b>" + ourInfo.listing + " " + ourInfo.phone + "</p>";
 
     }
 }
