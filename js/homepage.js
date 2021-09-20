@@ -1,4 +1,4 @@
-
+//this function checks to see if the email has a '@' character
 function myEmail(){
     let personEmail = document.getElementById("email").value;
     let charSymbol = false;
@@ -19,6 +19,7 @@ function myEmail(){
     };
 }
 
+//this function will fade toggle the cards
 $(document).ready(function(){
     $("button").click(function(){
         $("#card1").fadeToggle("slow");
@@ -26,12 +27,16 @@ $(document).ready(function(){
         $("#card3").fadeToggle("slow");
     });
 });
+
+//this function will slide toggle the contact us info
 $(document).ready(function(){
     $("#contactUs").click(function(){
         $("#slide").slideToggle("slow");
     });
 });
 
+//this function is used to display all images on load. This includes the main feature house(renderHTML) which is the most expensive and is clickable.
+//this function will also call on the other functions to display the images and links in the cards; 1(renderHTML2), 2(renderHTML3), 3(renderHTML4)
 function myHouse() {
     var ourRequest = new XMLHttpRequest();
     ourRequest.open('GET', 'http://3.21.225.172:8080/api/realestate/getByRowAmount?rows=12')
@@ -45,6 +50,7 @@ function myHouse() {
     ourRequest.send();
 }
 
+//this is the feature house. it will check for the most expensive house I built the html, div, img, link, and paragraphs into the innerHTML
 function renderHTML(data){
     var ourHome = "0";
     var number = "";
@@ -63,7 +69,7 @@ function renderHTML(data){
     }
 }
 
-
+//this is the first card and house with the most sqft. again all of the html is built into the .innerHTML
 function renderHTML2(data){
     var ourHome1 = "0";
     var number1 = "";
@@ -87,6 +93,8 @@ function renderHTML2(data){
     document.getElementById("button1").innerHTML= '<a href="' + ourInfo1.id + '.html" class="btn btn-primary" >See Listing</a>';
     }
 }
+
+//this is the second card. house with the most beds
 function renderHTML3(data){
     var ourHome2 = "0";
     var number2 = "";
@@ -109,6 +117,8 @@ function renderHTML3(data){
         document.getElementById("button2").innerHTML= '<a href="' + ourInfo2.id + '.html" class="btn btn-primary" >See Listing</a>';
     }
 }
+
+//this is the third card. house with the most baths
 function renderHTML4(data){
     var ourHome3 = "0";
     var number3 = "";
@@ -132,8 +142,11 @@ function renderHTML4(data){
         document.getElementById("button3").innerHTML= '<a href="' + ourInfo3.id + '.html" class="btn btn-primary" >See Listing</a>';
     }
 }
+
+//this will load myHouse function when the page loads
 window.onload = myHouse;
 
+//the next few functions are for the fading/transition images that will load when the document is ready(page load)
 $(document).ready(function () {
     setImageOne();
 });
@@ -143,7 +156,7 @@ function setImageOne() {
 }
 
 function setImageTwo() {
-    $('#imageSwap').fadeIn(500).html('<img src="https://archello.s3.eu-central-1.amazonaws.com/images/2020/02/13/Classic-House-Interior-Design-4.1581603609.7419.jpg" style="width:45%; height:45%"/>').delay(2000).fadeOut(500, function () { setImageOne(); });
+    $('#imageSwap').fadeIn(500).html('<img src="https://archello.s3.eu-central-1.amazonaws.com/images/2020/02/13/Classic-House-Interior-Design-4.1581603609.7419.jpg" style="width:43%; height:43%"/>').delay(2000).fadeOut(500, function () { setImageOne(); });
 }
 
 

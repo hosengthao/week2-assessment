@@ -1,4 +1,4 @@
-//test test test
+//this function checks to see if the email has a '@' character
 function myEmail(){
     let personEmail = document.getElementById("email").value;
     let charSymbol = false;
@@ -19,12 +19,14 @@ function myEmail(){
     };
 }
 
+//this function will slide toggle the contact us info
 $(document).ready(function(){
     $("#contactUs").click(function(){
         $("#slide").slideToggle("slow");
     });
 })
 
+//this function is used to call the functions to show the images. this function will pull the JSON data
 function myList() {
     var ourRequest1 = new XMLHttpRequest();
     ourRequest1.open('GET', 'http://3.21.225.172:8080/api/realestate/getByRowAmount?rows=12')
@@ -34,7 +36,7 @@ function myList() {
     };
     ourRequest1.send();
 }
-
+//this will make display the images and build a div with the id="records" to load images on after.
 function renderHTML5(data){
 
     var listing = "";
@@ -54,10 +56,10 @@ function renderHTML5(data){
     }
         document.getElementById("listingsHome").innerHTML= divStart + tableStart + listingStart + listing + listingEnd + listingStart + listing2 + listingEnd + tableEnd + divEnd;
 }
-
+//this will load myList on page load.
 window.onload = myList;
 
-
+//this function takes the min and max values and will display the first 6 houses that match range.
 function update_data() {
 
     var divStart = '<div id="records">';
@@ -66,7 +68,7 @@ function update_data() {
     var listingEnd = '</tr>';
     var tableEnd = "</table>";
     var divEnd = '</div>';
-    const minCount = parseInt(document.getElementById("min").value);
+    const minCount = parseInt(document.getElementById("min").value);//puts the input to integer
     const maxCount = parseInt(document.getElementById("max").value);
     const url = "http://3.21.225.172:8080/api/";
 
@@ -74,13 +76,13 @@ function update_data() {
     if (maxCount < minCount) {
         alert("your min price is larger than your max price");
     };
-    //check if there is no max value
+    //check if there is no max value then set max to 30mil otherwise set to the max value
     if (isNaN(maxCount)) {
         var maxUnlimited = 30000000;
     } else {
         var maxUnlimited = maxCount;
     };
-    //check if there is no min value
+    //check if there is no min value then set to 0, otherwise set to min input value
     if (isNaN(minCount)) {
         var minUnlimited = 0;
     } else {
@@ -99,7 +101,7 @@ function update_data() {
     const htmlImages = [];
     let pageFirst;
     let pageSecond;
-
+//get the JSON data and if the price matches then .push into htmlImages array
     $.getJSON( url + "realestate/getByRowAmount?rows=12")
         .done(function( data ) {
             for (var i = 0; i < data.length; i++) {
@@ -108,6 +110,7 @@ function update_data() {
                 }
             }
             console.log(htmlImages[0].id);
+            //sets the first 3 images from htmlImages array into the individual table cells. if array object is undefined then will display nothing
             for (var i = 0; i < 3; i++) {
                 if (htmlImages[i] !== undefined) {
                     html +=  '<td><a href=' + htmlImages[i].id + '.html><img style="display:block;" width="100%" height="100%" src="' + url + htmlImages[i].imageurl + '"></a></td>';
@@ -115,6 +118,7 @@ function update_data() {
                     html +=  '<td></td>';
                 }
             }
+            //the next 3 images
             for (var i = 3; i < 6; i++) {
                 if (htmlImages[i] !== undefined) {
                     html2 +=  '<td><a href=' + htmlImages[i].id + '.html><img style="display:block;" width="100%" height="100%" src="' + url + htmlImages[i].imageurl + '"></a></td>';
@@ -143,6 +147,7 @@ function update_data() {
         });
 }
 
+//this function will load the next 6 images into "records" when the next button is pressed
 function next() {
     var divStart = '<div id="records">';
     var tableStart = "<table>";
@@ -227,6 +232,7 @@ function next() {
         });
 }
 
+//this function will load the previous 6 images into "records" when the next button is pressed
 function previous() {
     var divStart = '<div id="records">';
     var tableStart = "<table>";

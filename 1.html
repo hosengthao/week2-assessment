@@ -31,6 +31,7 @@
     </nav>
 </div>
 
+<!--this is where the myHouse function will replace html-->
 <div class="container-fluid text-center">
     <h3 id="htmlTitle">Price</h3>
     <h4 id="htmlAddress">Address here</h4>
@@ -40,6 +41,8 @@
 </div>
 
 <script>
+    <!--these will be unique to every page because it will need to pull from the JSON into the array in 1-12 and then this will pull each house individually-->
+    <!--this pulls the data from the JSON-->
     function myHouse() {
         var ourRequest = new XMLHttpRequest();
         ourRequest.open('GET', 'http://3.21.225.172:8080/api/realestate/getByRowAmount?rows=12')
@@ -50,6 +53,7 @@
         ourRequest.send();
     }
 
+    <!--this uses the data pulled from the JSON and puts it into these variables-->
     function renderHTML(data){
         var htmlString = '<h4>' + data[0].street + ", " + data[0].city + ", " + data[0].state + " " + data[0].zip + '</h4>';
         var htmlPhone = '<h6 class="green">Listed by: ' + data[0].listing + " Phone: " + data[0].phone + '</h6>';
@@ -61,14 +65,18 @@
         document.getElementById("htmlDetails").innerHTML= htmlInfo;
         document.getElementById("htmlLister").innerHTML= htmlPhone;
         }
+
+    <!--this loads the myHouse function when the window loads-->
     window.onload = myHouse();
 </script>
 
-
+<!--email and contact us footer-->
 <div class="container-fluid alignRight" style="color:white">
     <h3 class="">Join our email community</h3>
     <h3 class="" id="contactUs">Contact Us</h3>
 </div>
+
+<!--email input and button and contact us slide-->
 <div class="container-fluid alignRight" style="margin-bottom:25px">
     <form class="">
         <label for="email" style="color:white">E-Mail:</label>

@@ -1,3 +1,4 @@
+//this function checks to see if the email has a '@' character
 function myEmail(){
     let personEmail = document.getElementById("email").value;
     let charSymbol = false;
@@ -18,6 +19,7 @@ function myEmail(){
     };
 }
 
+//this function will slide toggle the contact us info
 $(document).ready(function(){
     $("#contactUs").click(function(){
         $("#slide").slideToggle("slow");
