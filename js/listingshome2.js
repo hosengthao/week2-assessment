@@ -29,7 +29,7 @@ $(document).ready(function(){
 //this function is used to call the functions to show the images. this function will pull the JSON data
 function myList() {
     var ourRequest1 = new XMLHttpRequest();
-    ourRequest1.open('GET', 'http://3.21.225.172:8080/api/realestate/getByRowAmount?rows=12')
+    ourRequest1.open('GET', 'http://3.21.225.172:8080/api/realestate/all')
     ourRequest1.onload = function () {
         const ourData1 = JSON.parse(ourRequest1.responseText);
         renderHTML5(ourData1);
@@ -38,30 +38,89 @@ function myList() {
 }
 
 //this will make display the images and build a div with the id="records" to load images on after.
-function renderHTML5(data){
-
-    var listing = "";
-    var listing2 = "";
-    var divStart = '<div id="records">';
-    var tableStart = "<table>";
-    var listingStart= "<tr>";
-    var listingEnd = '</tr>';
-    var tableEnd = "</table>";
-    var divEnd = '</div>';
-    var url = "http://3.21.225.172:8080/api/";
-    for (var i = 0; i < 3; i++) {
-        listing += '<td><a href=' + data[i].id + '.html><img style="display:block;" width="100%" height="100%" src="' + url + data[i].imageurl + '"></a></td>';
+function renderHTML5(data) {
+    var ii = 0;
+    let url = "http://3.21.225.172:8080/api/"
+    $("#listingsHome").html("")
+    for (let i = 0; i < data.length; i++) {
+        //define the card to be repeated
+        var card =
+            '<div class="col-md-4 text-center" id="card1" style=""><div class="card" style="width:300px">'
+            + '<img class="card-img-top" src="http://3.21.225.172:8080/api/' + data[i].imageurl + '" style="width:100%">'
+            + '<div class="card-body">'
+            + '<h5 > ' + data[i].street + ", " + data[i].city + ", " + data[i].state + " " + data[i].zip + '</h5>'
+            + '<p><b>' + data[i].sqft + " square feet!</b></p><p><b>Listing Agent: </b>" + data[i].listing + " " + data[i].phone + "</p>"
+            + '<a href="homes.html?' + i + '" class="btn btn-primary" >See Listing</a></div></div></div>';
+        if (ii < 6) {
+            $("#listingsHome").append(card);
+            ii++;
         }
-    for (var i = 3; i < 6; i++) {
-        listing2 += '<td><a href=' + data[i].id + '.html><img style="display:block;" width="100%" height="100%" src="http://3.21.225.172:8080/api/' + data[i].imageurl + '"></a></td>';
+
+console.log(card);
     }
-        document.getElementById("listingsHome").innerHTML= divStart + tableStart + listingStart + listing + listingEnd + listingStart + listing2 + listingEnd + tableEnd + divEnd;
 }
 //this will load myList on page load.
 window.onload = myList;
 
+function myListRefined() {
+    var ourRequest1 = new XMLHttpRequest();
+    ourRequest1.open('GET', 'http://3.21.225.172:8080/api/realestate/all')
+    ourRequest1.onload = function () {
+        const ourData1 = JSON.parse(ourRequest1.responseText);
+        renderHTML6(ourData1);
+    };
+    ourRequest1.send();
+}
+function renderHTML6(data) {
+    const minCount = parseInt(document.getElementById("min").value);//puts the input to integer
+    const maxCount = parseInt(document.getElementById("max").value);
+    let url = "http://3.21.225.172:8080/api/"
+    //check if max is less than min value
+    if (maxCount < minCount) {
+        alert("your min price is larger than your max price");
+    };
+    //check if there is no max value then set max to 30mil otherwise set to the max value
+    if (isNaN(maxCount)) {
+        var maxUnlimited = 30000000;
+    } else {
+        var maxUnlimited = maxCount;
+    };
+    //check if there is no min value then set to 0, otherwise set to min input value
+    if (isNaN(minCount)) {
+        var minUnlimited = 0;
+    } else {
+        var minUnlimited = minCount;
+    };
+
+    $("#listingsHome").html("")
+    for (let i = 0; i < data.length; i++) {
+        //define the card to be repeated
+        var card =
+            '<div class="col-md-4 text-center" id="card1" style=""><div class="card" style="width:300px">'
+            + '<img class="card-img-top" src="http://3.21.225.172:8080/api/' + data[i].imageurl + '" style="width:100%">'
+            + '<div class="card-body">'
+            + '<h5 > ' + data[i].street + ", " + data[i].city + ", " + data[i].state + " " + data[i].zip + '</h5>'
+            + '<p><b>$' + data[i].price + "</b></p><p><b>Listing Agent: </b>" + data[i].listing + " " + data[i].phone + "</p>"
+            + '<a href="homes.html?' + i + '" class="btn btn-primary" >See Listing</a></div></div></div>';
+        if ( data[i].price >= minUnlimited && data[i].price <= maxUnlimited) {
+            $("#listingsHome").append(card);
+        }
+
+
+
+        console.log(card);
+    }
+}
+
+
+
+
+
+
+
+
 //this function takes the min and max values and will display the first 6 houses that match range.
-function update_data() {
+/*function update_data() {
 
     var divStart = '<div id="records">';
     var tableStart = "<table>";
@@ -107,7 +166,7 @@ function update_data() {
         .done(function( data ) {
             for (var i = 0; i < data.length; i++) {
                 if ( data[i].price >= minUnlimited && data[i].price <= maxUnlimited) {
-                       htmlImages.push(data[i]);
+                    htmlImages.push(data[i]);
                 }
             }
             console.log(htmlImages[0].id);
@@ -146,7 +205,7 @@ function update_data() {
             document.getElementById("records").innerHTML= pageFirst;
             pageSecond = divStart + tableStart + listingStart + html3 + listingEnd + listingStart + html4 + listingEnd + tableEnd + divEnd + '<div class="text-center"><input type="button" onclick="previous()" value="<<"><input type="button" onclick="next()" value=">>"></div>';
         });
-}
+}*/
 
 //this function will load the next 6 images into "records" when the next button is pressed
 function next() {

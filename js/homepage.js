@@ -39,7 +39,7 @@ $(document).ready(function(){
 //this function will also call on the other functions to display the images and links in the cards; 1(renderHTML2), 2(renderHTML3), 3(renderHTML4)
 function myHouse() {
     var ourRequest = new XMLHttpRequest();
-    ourRequest.open('GET', 'http://3.21.225.172:8080/api/realestate/getByRowAmount?rows=12')
+    ourRequest.open('GET', 'http://3.21.225.172:8080/api/realestate/all')
     ourRequest.onload = function () {
         const ourData = JSON.parse(ourRequest.responseText);
         renderHTML(ourData);
@@ -61,10 +61,11 @@ function renderHTML(data){
         if (number >= ourHome) {
             ourHome = number;
             ourInfo = data[i];
+            var ii = i;
         } else {
             ourHome = ourHome;
         }
-        document.getElementById("featured2").innerHTML= '<a href="' + ourInfo.id + '.html"><img  style="max-width:100%; height:auto" src="http://3.21.225.172:8080/api/' + ourInfo.imageurl + '"></a><br><h4><b>$' + ourHome + "</b></h4><p >" + ourInfo.street + ", " + ourInfo.city + ", " + ourInfo.state + " " + ourInfo.zip + " </p><p><b>Year built: </b>" + ourInfo.yrblt.slice(0,4) + " <b>Bathrooms: </b>" + ourInfo.baths + " <b>Bedrooms: </b>" + ourInfo.beds + "</p><p><b>Listing Agent: </b>" + ourInfo.listing + " " + ourInfo.phone + "</p>";
+        document.getElementById("featured2").innerHTML= '<a href=homes.html?' + ii + '><img  style="max-width:100%; height:auto" src="http://3.21.225.172:8080/api/' + ourInfo.imageurl + '"></a><br><h4><b>$' + ourHome + "</b></h4><p >" + ourInfo.street + ", " + ourInfo.city + ", " + ourInfo.state + " " + ourInfo.zip + " </p><p><b>Year built: </b>" + ourInfo.yrblt.slice(0,4) + " <b>Bathrooms: </b>" + ourInfo.baths + " <b>Bedrooms: </b>" + ourInfo.beds + "</p><p><b>Listing Agent: </b>" + ourInfo.listing + " " + ourInfo.phone + "</p>";
 
     }
 }
@@ -80,6 +81,7 @@ function renderHTML2(data){
         if (number1 >= ourHome1) {
             ourHome1 = number1;
             ourInfo1 = data[i];
+            var ii = i;
         } else {
             ourHome1 = ourHome1;
         }
@@ -90,7 +92,7 @@ function renderHTML2(data){
     document.getElementById("imgHouse1").innerHTML= imghome1;
     document.getElementById("title1").innerHTML = '<h5 > ' + ourInfo1.street + ", " + ourInfo1.city + ", " + ourInfo1.state + " " + ourInfo1.zip + '</h5>';
     document.getElementById("house1").innerHTML= home1txt;
-    document.getElementById("button1").innerHTML= '<a href="' + ourInfo1.id + '.html" class="btn btn-primary" >See Listing</a>';
+    document.getElementById("button1").innerHTML= '<a href="homes.html?' + ii + '" class="btn btn-primary" >See Listing</a>';
     }
 }
 
@@ -105,6 +107,7 @@ function renderHTML3(data){
         if (number2 >= ourHome2) {
             ourHome2 = number2;
             ourInfo2 = data[i];
+            var ii = i;
         } else {
             ourHome2 = ourHome2;
         }
@@ -114,7 +117,7 @@ function renderHTML3(data){
         document.getElementById("imgHouse2").innerHTML= imghome2;
         document.getElementById("title2").innerHTML = '<h5 > ' + ourInfo2.street + ", " + ourInfo2.city + ", " + ourInfo2.state + " " + ourInfo2.zip + '</h5>';
         document.getElementById("house2").innerHTML= home2txt;
-        document.getElementById("button2").innerHTML= '<a href="' + ourInfo2.id + '.html" class="btn btn-primary" >See Listing</a>';
+        document.getElementById("button2").innerHTML= '<a href="homes.html?' + ii + '" class="btn btn-primary" >See Listing</a>';
     }
 }
 
@@ -129,6 +132,7 @@ function renderHTML4(data){
         if (number3 >= ourHome3) {
             ourHome3 = number3;
             ourInfo3 = data[i];
+            var ii = i;
         } else {
             ourHome3 = ourHome3;
         }
@@ -139,7 +143,7 @@ function renderHTML4(data){
         document.getElementById("imgHouse3").innerHTML= imghome3;
         document.getElementById("title3").innerHTML = '<h5 > ' + ourInfo3.street + ", " + ourInfo3.city + ", " + ourInfo3.state + " " + ourInfo3.zip + '</h5>';
         document.getElementById("house3").innerHTML= home3txt;
-        document.getElementById("button3").innerHTML= '<a href="' + ourInfo3.id + '.html" class="btn btn-primary" >See Listing</a>';
+        document.getElementById("button3").innerHTML= '<a href="homes.html' + ii + '" class="btn btn-primary" >See Listing</a>';
     }
 }
 
@@ -156,7 +160,7 @@ function setImageOne() {
 }
 
 function setImageTwo() {
-    $('#imageSwap').fadeIn(500).html('<img src="https://archello.s3.eu-central-1.amazonaws.com/images/2020/02/13/Classic-House-Interior-Design-4.1581603609.7419.jpg" style="width:43%; height:43%"/>').delay(2000).fadeOut(500, function () { setImageOne(); });
+    $('#imageSwap').fadeIn(500).html('<img src="https://archello.s3.eu-central-1.amazonaws.com/images/2020/02/13/Classic-House-Interior-Design-4.1581603609.7419.jpg" style="width:35%; height:35%"/>').delay(2000).fadeOut(500, function () { setImageOne(); });
 }
 
 
