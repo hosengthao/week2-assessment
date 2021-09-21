@@ -5,7 +5,7 @@
     font-family: "Tahoma"
 }
 .jumbotron-color {
-    background-color:white;
+    background-color:whitesmoke;
 }
 .navbar {
     background-color:#616161;
@@ -38,4 +38,17 @@ body {
 
 .green {
     color:#BCE723;
+}
+.darkgray {
+    color:#616161;
+}
+.darkdarkgray {
+    color:#505050;
+}
+.backgroundWhite {
+    background-color:whitesmoke;
+}
+
+.transparent {
+    background-color:transparent;
 }

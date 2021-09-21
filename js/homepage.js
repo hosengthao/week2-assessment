@@ -35,7 +35,7 @@ $(document).ready(function(){
     });
 });
 
-//this function is used to display all images on load. This includes the main feature house(renderHTML) which is the most expensive and is clickable.
+//this function is used to call all of the functions that will display images on page load. This includes the main feature house(renderHTML) which is the most expensive and is clickable.
 //this function will also call on the other functions to display the images and links in the cards; 1(renderHTML2), 2(renderHTML3), 3(renderHTML4)
 function myHouse() {
     var ourRequest = new XMLHttpRequest();
@@ -50,7 +50,7 @@ function myHouse() {
     ourRequest.send();
 }
 
-//this is the feature house. it will check for the most expensive house I built the html, div, img, link, and paragraphs into the innerHTML
+//this is the function for the featured house. it will check for the most expensive house. I built the html, div, img, link, and paragraphs into the innerHTML
 function renderHTML(data){
     var ourHome = "0";
     var number = "";
@@ -59,13 +59,15 @@ function renderHTML(data){
     for (var i = 0; i < data.length; i++) {
         number = data[i].price;
         if (number >= ourHome) {
+            //if current house price is greater than or equal to number stored in ourHome then it will set ourHome = number(current house price)
+            //then it will also set the current house details into ourInfo
             ourHome = number;
             ourInfo = data[i];
             var ii = i;
         } else {
             ourHome = ourHome;
         }
-        document.getElementById("featured2").innerHTML= '<a href=homes.html?' + ii + '><img  style="max-width:100%; height:auto" src="http://3.21.225.172:8080/api/' + ourInfo.imageurl + '"></a><br><h4><b>$' + ourHome + "</b></h4><p >" + ourInfo.street + ", " + ourInfo.city + ", " + ourInfo.state + " " + ourInfo.zip + " </p><p><b>Year built: </b>" + ourInfo.yrblt.slice(0,4) + " <b>Bathrooms: </b>" + ourInfo.baths + " <b>Bedrooms: </b>" + ourInfo.beds + "</p><p><b>Listing Agent: </b>" + ourInfo.listing + " " + ourInfo.phone + "</p>";
+        document.getElementById("featured2").innerHTML= '<a href=homes.html?' + ii + '><img  style="max-width:100%; height:auto" src="http://3.21.225.172:8080/api/' + ourInfo.imageurl + '"></a><br><h4 class=""><b>$' + ourHome + "</b></h4><p class='darkgray'>" + ourInfo.street + ", " + ourInfo.city + ", " + ourInfo.state + " " + ourInfo.zip + " </p><p class='darkgray'><b>Year built: </b>" + ourInfo.yrblt.slice(0,4) + " <b>Bathrooms: </b>" + ourInfo.baths + " <b>Bedrooms: </b>" + ourInfo.beds + "</p><p class='darkgray'<b> Contact the Listing Agent: </b>" + ourInfo.listing + " " + ourInfo.phone + "</p>";
 
     }
 }
@@ -86,11 +88,11 @@ function renderHTML2(data){
             ourHome1 = ourHome1;
         }
     var imghome1 = '<img class="card-img-top" src="http://3.21.225.172:8080/api/' + ourInfo1.imageurl + '" style="width:100%">';
-    var home1txt = '<p><b>' + ourHome1 + " square feet!</b></p><p><b>Listing Agent: </b>" + ourInfo1.listing + " " + ourInfo1.phone + "</p>";
+    var home1txt = '<p class=""><b>' + ourHome1 + " square feet!</b></p><p class='darkgray'><b>Listing Agent: </b>" + ourInfo1.listing + " " + ourInfo1.phone + "</p>";
 
     console.log(ourInfo1.id);
     document.getElementById("imgHouse1").innerHTML= imghome1;
-    document.getElementById("title1").innerHTML = '<h5 > ' + ourInfo1.street + ", " + ourInfo1.city + ", " + ourInfo1.state + " " + ourInfo1.zip + '</h5>';
+    document.getElementById("title1").innerHTML = '<h5 class="darkgray"> ' + ourInfo1.street + ", " + ourInfo1.city + ", " + ourInfo1.state + " " + ourInfo1.zip + '</h5>';
     document.getElementById("house1").innerHTML= home1txt;
     document.getElementById("button1").innerHTML= '<a href="homes.html?' + ii + '" class="btn btn-primary" >See Listing</a>';
     }
@@ -112,10 +114,10 @@ function renderHTML3(data){
             ourHome2 = ourHome2;
         }
         var imghome2 = '<img class="card-img-top" src="http://3.21.225.172:8080/api/' + ourInfo2.imageurl + '" style="width:100%">';
-        var home2txt = '<p><b>' + ourHome2 + " bedrooms!</b></p><p><b>Listing Agent: </b>" + ourInfo2.listing + " " + ourInfo2.phone + "</p>";
+        var home2txt = '<p class=""><b>' + ourHome2 + " bedrooms!</b></p><p class='darkgray'><b>Listing Agent: </b>" + ourInfo2.listing + " " + ourInfo2.phone + "</p>";
 
         document.getElementById("imgHouse2").innerHTML= imghome2;
-        document.getElementById("title2").innerHTML = '<h5 > ' + ourInfo2.street + ", " + ourInfo2.city + ", " + ourInfo2.state + " " + ourInfo2.zip + '</h5>';
+        document.getElementById("title2").innerHTML = '<h5 class="darkgray"> ' + ourInfo2.street + ", " + ourInfo2.city + ", " + ourInfo2.state + " " + ourInfo2.zip + '</h5>';
         document.getElementById("house2").innerHTML= home2txt;
         document.getElementById("button2").innerHTML= '<a href="homes.html?' + ii + '" class="btn btn-primary" >See Listing</a>';
     }
@@ -137,11 +139,11 @@ function renderHTML4(data){
             ourHome3 = ourHome3;
         }
         var imghome3 = '<img class="card-img-top" src="http://3.21.225.172:8080/api/' + ourInfo3.imageurl + '" style="width:100%">';
-        var home3txt = '<p><b>' + ourHome3 + " bathrooms!</b></p><p><b>Listing Agent: </b>" + ourInfo3.listing + " " + ourInfo3.phone + "</p>";
+        var home3txt = '<p class=""><b>' + ourHome3 + " bathrooms!</b></p><p class='darkgray'><b>Listing Agent: </b>" + ourInfo3.listing + " " + ourInfo3.phone + "</p>";
 
         console.log(imghome3);
         document.getElementById("imgHouse3").innerHTML= imghome3;
-        document.getElementById("title3").innerHTML = '<h5 > ' + ourInfo3.street + ", " + ourInfo3.city + ", " + ourInfo3.state + " " + ourInfo3.zip + '</h5>';
+        document.getElementById("title3").innerHTML = '<h5 class="darkgray"> ' + ourInfo3.street + ", " + ourInfo3.city + ", " + ourInfo3.state + " " + ourInfo3.zip + '</h5>';
         document.getElementById("house3").innerHTML= home3txt;
         document.getElementById("button3").innerHTML= '<a href="homes.html' + ii + '" class="btn btn-primary" >See Listing</a>';
     }
@@ -151,16 +153,17 @@ function renderHTML4(data){
 window.onload = myHouse;
 
 //the next few functions are for the fading/transition images that will load when the document is ready(page load)
+//this function starts off with first image
 $(document).ready(function () {
     setImageOne();
 });
-
+//display image and then fade to second
 function setImageOne() {
-    $('#imageSwap').fadeIn(500).html('<img src="https://t3.ftcdn.net/jpg/02/96/92/12/360_F_296921238_Qt3eB6C1QtqvKNt8FTLwe4F5H4lZLqpb.jpg" />').delay(2000).fadeOut(500, function () { setImageTwo(); });
+    $('#imageSwap').fadeIn(500).html('<img src="https://t3.ftcdn.net/jpg/02/96/92/12/360_F_296921238_Qt3eB6C1QtqvKNt8FTLwe4F5H4lZLqpb.jpg" style="width:100%; height:100%"/>').delay(2000).fadeOut(500, function () { setImageTwo(); });
 }
-
+//display second image and then fades back to image one
 function setImageTwo() {
-    $('#imageSwap').fadeIn(500).html('<img src="https://archello.s3.eu-central-1.amazonaws.com/images/2020/02/13/Classic-House-Interior-Design-4.1581603609.7419.jpg" style="width:35%; height:35%"/>').delay(2000).fadeOut(500, function () { setImageOne(); });
+    $('#imageSwap').fadeIn(500).html('<img src="https://archello.s3.eu-central-1.amazonaws.com/images/2020/02/13/Classic-House-Interior-Design-4.1581603609.7419.jpg" style="width:100%; height:100%"/>').delay(2000).fadeOut(500, function () { setImageOne(); });
 }
 
 

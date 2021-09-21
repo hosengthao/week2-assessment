@@ -10,12 +10,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/homepage.js"></script>
 </head>
 <body>
 <!--header with nav bar nested-->
 <div class="jumbotron jumbotron-color text-right">
     <h1 class="p1 lightBlue">THAO REALTY</h1>
-    <p class="p2 darkBlue"><i>We don't just sell houses, we sell homes!</i></p>
+    <h5 class="p2 darkBlue"><i>We don't just sell houses, we sell homes!</i></h5>
     <nav class="navbar navbar-expand-sm p2 navbar-dark rounded">
         <ul class="navbar-nav">
             <li class="nav-item active">
@@ -43,7 +44,7 @@
     <div class="row" style="margin-top:10px">
         <!--next is going to be the cards with images and links displayed. 1st house is the most sqft, 2nd is the most bedrooms, third is the most bathrooms-->
         <div class="col text-center" id="card1" style="display:none">
-            <div class="card" style="width:300px" >
+            <div class="card backgroundWhite" style="width:300px" >
                 <div id="imgHouse1">
                 <img class="card-img-top" id="" src="" alt="Card image1" style="width:100%">
                 </div>
@@ -55,7 +56,7 @@
             </div>
         </div>
         <div class="col text-center" id="card2" style="display:none">
-            <div class="card" style="width:300px" >
+            <div class="card backgroundWhite" style="width:300px" >
                 <div id="imgHouse2">
                     <img class="card-img-top"  src="" alt="Card image2" style="width:100%">
                 </div>
@@ -67,7 +68,7 @@
             </div>
         </div>
         <div class="col text-center" id="card3" style="display:none">
-            <div class="card" style="width:300px">
+            <div class="card backgroundWhite" style="width:300px">
                 <div id="imgHouse3">
                     <img class="card-img-top"  src="" alt="Card image3" style="width:100%">
                 </div>
@@ -84,9 +85,9 @@
 <!--jumbotron block with something about satisfied customers and pictures that fade in and out to one another-->
 <div class="jumbotron jumbotron-color text-center">
     <h1 id="hear" class="lightBlue">Hear from our satisfied customers!</h1>
-    <marquee behavior="scroll" scrollamount="4" direction="left" width="350">
+    <marquee class="darkgray" behavior="scroll" scrollamount="4" direction="left" width="350">
         They are satisfied because they bought a home from Thao Realty. Here are some pictures</marquee>
-    <div id="imageSwap">
+    <div class="container" id="imageSwap">
     </div>
 </div>
 
@@ -105,8 +106,6 @@
     </form>
     <p class="" id="slide" style="display:none; color:white">thao.realty@gmail.com | 952.222.4444 | www.facebook.com/thaorealty</p>
 </div>
-
-<script src="js/homepage.js"></script>
 
 </body>
 </html>
