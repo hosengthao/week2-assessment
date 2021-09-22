@@ -24,7 +24,10 @@ body {
     color:#5689c2;
 }
 .darkBlue {
-    color:#101E2D;
+    background-color:#101E2D;
+}
+.darkBlueText {
+    color:#1b324b;
 }
 .alignRight {
     display: flex;

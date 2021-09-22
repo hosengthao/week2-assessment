@@ -43,12 +43,13 @@ function renderHTML5(data) {
     let url = "http://3.21.225.172:8080/api/"
     $("#listingsHome").html("")
     for (let i = 0; i < data.length; i++) {
+        let housePrice = data[i].price;
         var card =
             '<div class="col-md-4 text-center" id="card1" style=""><div class="card backgroundWhite" style="width:300px">'
             + '<img class="card-img-top" src="http://3.21.225.172:8080/api/' + data[i].imageurl + '" style="width:100%">'
             + '<div class="card-body">'
             + '<h5 class="darkgray"> ' + data[i].street + ", " + data[i].city + ", " + data[i].state + " " + data[i].zip + '</h5>'
-            + '<p><b>$' + data[i].price + "</b></p><p class='darkgray'><b>Listing Agent: </b>" + data[i].listing + " " + data[i].phone + "</p>"
+            + '<p><b>$' + housePrice.toLocaleString() + "</b></p><p class='darkgray'><b>Listing Agent: </b>" + data[i].listing + " " + data[i].phone + "</p>"
             + '<a href="homes.html?' + i + '" class="btn btn-primary" >See Listing</a></div></div></div>';
         if (ii < 6) {
         //this will only display 6 images on the screen when the page loads
@@ -97,15 +98,17 @@ function renderHTML6(data) {
 
     $("#listingsHome").html("")
     for (let i = 0; i < data.length; i++) {
-        //define the card to be repeated
+        //create all 50 cards
+        let housePrice = data[i].price;
         var card =
             '<div class="col-md-4 text-center" id="card1" style=""><div class="card" style="width:300px">'
             + '<img class="card-img-top" src="http://3.21.225.172:8080/api/' + data[i].imageurl + '" style="width:100%">'
             + '<div class="card-body">'
             + '<h5 class="darkgray"> ' + data[i].street + ", " + data[i].city + ", " + data[i].state + " " + data[i].zip + '</h5>'
-            + '<p><b>$' + data[i].price + "</b></p><p class='darkgray'><b>Listing Agent: </b>" + data[i].listing + " " + data[i].phone + "</p>"
+            + '<p><b>$' + housePrice.toLocaleString() + "</b></p><p class='darkgray'><b>Listing Agent: </b>" + data[i].listing + " " + data[i].phone + "</p>"
             + '<a href="homes.html?' + i + '" class="btn btn-primary" >See Listing</a></div></div></div>';
         if ( data[i].price >= minUnlimited && data[i].price <= maxUnlimited) {
+            //only appends the cards that match the if statement
             $("#listingsHome").append(card);
         }
 

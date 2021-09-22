@@ -21,12 +21,13 @@ function myEmail(){
 
 //this function will fade toggle the cards
 $(document).ready(function(){
-    $("button").click(function(){
+    $("#droplist").click(function(){
         $("#card1").fadeToggle("slow");
         $("#card2").fadeToggle("slow");
         $("#card3").fadeToggle("slow");
     });
 });
+
 
 //this function will slide toggle the contact us info
 $(document).ready(function(){
@@ -67,7 +68,7 @@ function renderHTML(data){
         } else {
             ourHome = ourHome;
         }
-        document.getElementById("featured2").innerHTML= '<a href=homes.html?' + ii + '><img  style="max-width:100%; height:auto" src="http://3.21.225.172:8080/api/' + ourInfo.imageurl + '"></a><br><h4 class=""><b>$' + ourHome + "</b></h4><p class='darkgray'>" + ourInfo.street + ", " + ourInfo.city + ", " + ourInfo.state + " " + ourInfo.zip + " </p><p class='darkgray'><b>Year built: </b>" + ourInfo.yrblt.slice(0,4) + " <b>Bathrooms: </b>" + ourInfo.baths + " <b>Bedrooms: </b>" + ourInfo.beds + "</p><p class='darkgray'<b> Contact the Listing Agent: </b>" + ourInfo.listing + " " + ourInfo.phone + "</p>";
+        document.getElementById("featured2").innerHTML= '<a href=homes.html?' + ii + '><img  style="max-width:100%; height:auto" src="http://3.21.225.172:8080/api/' + ourInfo.imageurl + '"></a><br><h4 class=""><b>$' + ourHome.toLocaleString() + "</b></h4><p class='darkBlueText'>" + ourInfo.street + ", " + ourInfo.city + ", " + ourInfo.state + " " + ourInfo.zip + " </p><p class='darkBlueText'><b>Year built: </b>" + ourInfo.yrblt.slice(0,4) + " <b>Bathrooms: </b>" + ourInfo.baths + " <b>Bedrooms: </b>" + ourInfo.beds + "</p><p class='darkBlueText'<b> Contact the Listing Agent: </b>" + ourInfo.listing + " " + ourInfo.phone + "</p>";
 
     }
 }
@@ -157,13 +158,15 @@ window.onload = myHouse;
 $(document).ready(function () {
     setImageOne();
 });
+
 //display image and then fade to second
 function setImageOne() {
-    $('#imageSwap').fadeIn(500).html('<img src="https://t3.ftcdn.net/jpg/02/96/92/12/360_F_296921238_Qt3eB6C1QtqvKNt8FTLwe4F5H4lZLqpb.jpg" style="width:100%; height:100%"/>').delay(2000).fadeOut(500, function () { setImageTwo(); });
+    $('#imageSwap').fadeIn(500).html('<img class="img-fluid" src="https://t3.ftcdn.net/jpg/02/96/92/12/360_F_296921238_Qt3eB6C1QtqvKNt8FTLwe4F5H4lZLqpb.jpg"/>').delay(2000).fadeOut(500, function () { setImageTwo(); });
 }
+
 //display second image and then fades back to image one
 function setImageTwo() {
-    $('#imageSwap').fadeIn(500).html('<img src="https://archello.s3.eu-central-1.amazonaws.com/images/2020/02/13/Classic-House-Interior-Design-4.1581603609.7419.jpg" style="width:100%; height:100%"/>').delay(2000).fadeOut(500, function () { setImageOne(); });
+    $('#imageSwap').fadeIn(500).html('<img class="" src="https://archello.s3.eu-central-1.amazonaws.com/images/2020/02/13/Classic-House-Interior-Design-4.1581603609.7419.jpg" style="width:auto; height:360px"/>').delay(2000).fadeOut(500, function () { setImageOne(); });
 }
 
 

@@ -16,14 +16,17 @@
 <!--header with nav bar nested-->
 <div class="jumbotron jumbotron-color text-right">
     <h1 class="p1 lightBlue">THAO REALTY</h1>
-    <h5 class="p2 darkBlue"><i>We don't just sell houses, we sell homes!</i></h5>
+    <h5 class="p2 darkdarkgray"><i>We don't just sell houses, we sell homes!</i></h5>
     <nav class="navbar navbar-expand-sm p2 navbar-dark rounded">
         <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="listings.html">Listings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="mortgagecalc.html">Mortgage Calculator</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="aboutus.html">About Us</a>
@@ -42,22 +45,23 @@
     <h5>Contact them today!</h5>
 </div>
 
-<!--email and contact us footer-->
-<div class="container-fluid alignRight" style="color:white">
-    <h3 class="">Join our email community</h3>
-    <h3 class="" id="contactUs">Contact Us</h3>
-</div>
+<footer class="darkBlue" style="margin-bottom:25px"><!--email and contact us footer-->
+    <div class="container-fluid alignRight" style="color:white">
+        <h3 class="">Join our email community</h3>
+        <h3 class="" id="contactUs">Contact Us</h3>
+    </div>
 
-<!--email input and button and contact us slide-->
-<div class="container-fluid alignRight" style="margin-bottom:25px">
-    <form class="">
-        <label for="email" style="color:white">E-Mail:</label>
-        <input type="text" id="email" name="email" value="">
-        <input type="button" value="Accept" onclick="myEmail()">
-    </form>
-    <p class="" id="slide" style="display:none; color:white">thao.realty@gmail.com | 952.222.4444 | www.facebook.com/thaorealty</p>
-</div>
-
+    <!--email input and button and contact us slide-->
+    <div class="container-fluid alignRight" style="">
+        <form class="">
+            <label for="email" style="color:white">E-Mail:</label>
+            <input type="text" id="email" name="email" value="">
+            <input type="button" value="Subscribe" onclick="myEmail()">
+        </form>
+        <p class="" id="slide" style="display:none; color:white">thao.realty@gmail.com | 952.222.4444 | www.facebook.com/thaorealty</p>
+    </div>
+    <br>
+</footer>
 
 </body>
 </html>

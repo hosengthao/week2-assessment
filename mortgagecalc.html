@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thao Realty</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/realty.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/homepage.js"></script>
+</head>
+<body>
+<!--header with nav bar nested-->
+<div class="jumbotron jumbotron-color text-right">
+    <h1 class="p1 lightBlue">THAO REALTY</h1>
+    <h5 class="p2 darkdarkgray"><i>We don't just sell houses, we sell homes!</i></h5>
+    <nav class="navbar navbar-expand-sm p2 navbar-dark rounded">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="listings.html">Listings</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="mortgagecalc.html">Mortgage Calculator</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="aboutus.html">About Us</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="container-fluid" style="margin:25px">
+    <h4 class="pull-left">The first step to finding a home is to see what mortgage you can afford. This will help you narrow down your search. However, there are many factors that can go into finding a home. If you are unsure of something please reach out to one of our agents.</h4>
+</div>
+
+<div class="container text-center">
+    <a href="https://www.mortgagecalculator.org/"><img src="https://www.mortgagecalculator.org/images/mortgage-calculator-logo.png" width="589" height="57" alt="MortgageCalculator.org" border="0" style="max-width: 100%;" target="_blank"></a>
+    <ul class="media-list">
+        <li class="media">
+            <iframe class="pull-left" src="https://www.mortgagecalculator.org/webmasters/?downpayment=50000&homevalue=300000&loanamount=250000&interestrate=4&loanterm=30&propertytax=2400&pmi=1&homeinsurance=1000&monthlyhoa=0" style="width: 100%; height: 1200px; border: 0;"></iframe>
+            <div class="media-body">
+                <!-- Nested media object -->
+                <div class="media">
+                    <!-- MORTGAGE RATES BEGIN -->
+                    <script type="text/javascript">if(typeof jQuery == "undefined"){document.write(unescape("%3Cscript src='" + (document.location.protocol == 'https:' ? 'https:' : 'http:') + "//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));mlcalc_jquery_noconflict=1;};</script>
+                    <div style="line-height:10px;font-weight:normal;font-size:9px;font-family:Tahoma;padding:0;margin:0;border:0;text-align:right;background:transparent;color:#EEEEEE;width:300px;padding-right:10px;" class="mlcalcRatesWidgetHolder" id="mlcalcRatesWidgetHolderXX">
+                        <script type="text/javascript">document.write(unescape("%3Cscript src='//www.mlcalc.com" + "/mortgage-rates/widget-wide.js' type='text/javascript'%3E%3C/script%3E"));</script>
+                        <a href="https://www.mlcalc.com/mortgage-rates/" style="font-weight:normal;font-size:9px;font-family:Tahoma;color:#EEEEEE;text-decoration:none;">Mortgage Rates</a>
+                    </div>
+                    <!-- MORTGAGE RATES END -->
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<footer class="darkBlue" style="margin-bottom:25px"><!--email and contact us footer-->
+    <div class="container-fluid alignRight" style="color:white">
+        <h3 class="">Join our email community</h3>
+        <h3 class="" id="contactUs">Contact Us</h3>
+    </div>
+
+    <!--email input and button and contact us slide-->
+    <div class="container-fluid alignRight" style="">
+        <form class="">
+            <label for="email" style="color:white">E-Mail:</label>
+            <input type="text" id="email" name="email" value="">
+            <input type="button" value="Subscribe" onclick="myEmail()">
+        </form>
+        <p class="" id="slide" style="display:none; color:white">thao.realty@gmail.com | 952.222.4444 | www.facebook.com/thaorealty</p>
+    </div>
+    <br>
+</footer>
+</body>
+</html>

@@ -22,7 +22,7 @@
 <!--header with nav bar nested-->
 <div class="jumbotron jumbotron-color text-right">
     <h1 class="p1 lightBlue">THAO REALTY</h1>
-    <h5 class="p2 darkBlue"><i>We don't just sell houses, we sell homes!</i></h5>
+    <h5 class="p2 darkdarkgray"><i>We don't just sell houses, we sell homes!</i></h5>
     <nav class="navbar navbar-expand-sm p2 navbar-dark rounded">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -30,6 +30,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="listings.html">Listings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="mortgagecalc.html">Mortgage Calculator</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="aboutus.html">About Us</a>
@@ -45,9 +48,9 @@
 <div class="container-fluid">
     <table>
         <!--photo-->
-        <tr><td class="text-center""><img class="text-center rounded" width="50%" height="auto" src="https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.6435-9/86719741_10156721136862204_1269567808434339840_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=0ZOiokLxmxcAX8kOm1m&_nc_ht=scontent.ffcm1-2.fna&oh=54626e37f75d8a9be82b99003e027bf1&oe=6169D645"/></td>
+        <tr><td class="text-center" style=""><img class="text-center rounded" width="50%" height="auto" src="https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.6435-9/86719741_10156721136862204_1269567808434339840_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=0ZOiokLxmxcAX8kOm1m&_nc_ht=scontent.ffcm1-2.fna&oh=54626e37f75d8a9be82b99003e027bf1&oe=6169D645"/></td>
             <!--about me-->
-            <td align="left"><h5 class="darkdarkgray">Founded in 2021, Thao Realty has been servicing the Minneapolis Saint Paul area for 1 year.
+            <td align="left" style=""><h5 class="darkdarkgray" style="margin-right:50px">Founded in 2021, <span class="lightBlue">Thao Realty</span> has been servicing the Minneapolis Saint Paul area for 1 year.
                 We have sold over 50,000 homes in the Minneapolis, MN area in that short time.
                 All of our homes we have sold were over 10% above market value.
                 If you are looking to buy or sell a home we are the place for you.<br><br>
@@ -56,10 +59,10 @@
                 He has 4 kids, 2 boys and 2 girls. He is very passionate about selling homes and software development.</h5></td>
         </tr><br>
         <tr>
-            <td><h5 class="darkdarkgray">Zachariah is our top rated real estate agent. Although he has only been selling houses for 2 and a half years, he has already proven himself to be a top rated agent.
+            <td><h5 style="margin-left:100px" class="darkdarkgray">Zachariah is our top rated real estate agent. Although he has only been selling houses for 2 and a half years, he has already proven himself to be a top rated agent.
             With his good looks and great charm he is able to sway almost any client that we have.<br><br> There is no telling what is the ceiling for this guy.
             as a top negotiator he can sell a house fast or help you buy your dream home. Reach out to him today.</h5></td>
-            <td align="center"><img class="text-center rounded" width="50%" height="auto" src="/photos/Zachariah.jpg" rotate="270"/></td>
+            <td align="center"><img class="text-center rounded" width="30%" height="auto" src="/photos/Zachariah.jpg" rotate="270"/></td>
         </tr>
     </table>
 </div>
@@ -70,34 +73,38 @@
     <blockquote class="text-right">-Ho-Seng Thao</blockquote>
 </div>
 
-<h5 class="text-center darkgray">Let's hear what Jeb Smith from Youtube has to say about buying a house in 2021!</h5><br>
-
+<br><br>
 <!--embedded video-->
-<div class="container-sm embed-responsive embed-responsive-16by9">
-    <h5>Let's hear what Jeb Smith from Youtube has to say about buying a house in 2021!</h5><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/CYk9oPAEjR8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="container-md rounded text-center" style="background-color:transparent">
+    <h3 class="darkBlueText">Thao Realty has won regional and international awards for being a top-rated real estate company!</h3><br>
+    <div class="text-center">
+        <img src="https://media.bizj.us/view/img/12056632/hou-cpcover-online-071621*1200xx10417-5860-0-0.jpg" style="max-width:20%; height:auto">
+        <img src="http://www.rogersteamdfw.com/wp-content/uploads/2020/01/Real-Estate-Agents-2019.jpg" style="max-width:10%; height:auto; margin:25px">
+        <img src="https://www.conres.com/wp-content/uploads/2021/01/US-Color.png" style="max-width:10%; height:auto; margin-bottom:10px">
+    </div>
 </div>
 
 <br>
 <br>
 <br>
 
-<!--email and contact us footer-->
-<div class="container-fluid alignRight" style="color:white">
-    <h3 class="">Join our email community</h3>
-    <h3 class="" id="contactUs">Contact Us</h3>
-</div>
+<footer class="darkBlue" style="margin-bottom:25px"><!--email and contact us footer-->
+    <div class="container-fluid alignRight" style="color:white">
+        <h3 class="">Join our email community</h3>
+        <h3 class="" id="contactUs">Contact Us</h3>
+    </div>
 
-<!--email input and button and contact us slide-->
-<div class="container-fluid alignRight" style="margin-bottom:25px">
-    <form class="">
-        <label for="email" style="color:white">E-Mail:</label>
-        <input type="text" id="email" name="email" value="">
-        <input type="button" value="Accept" onclick="myEmail()">
-    </form>
-    <p class="" id="slide" style="display:none; color:white">thao.realty@gmail.com | 952.222.4444 | www.facebook.com/thaorealty</p>
-</div>
-
+    <!--email input and button and contact us slide-->
+    <div class="container-fluid alignRight" style="">
+        <form class="">
+            <label for="email" style="color:white">E-Mail:</label>
+            <input type="text" id="email" name="email" value="">
+            <input type="button" value="Subscribe" onclick="myEmail()">
+        </form>
+        <p class="" id="slide" style="display:none; color:white">thao.realty@gmail.com | 952.222.4444 | www.facebook.com/thaorealty</p>
+    </div>
+    <br>
+</footer>
 
 </body>
 </html>
