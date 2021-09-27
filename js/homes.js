@@ -43,7 +43,8 @@ function myHome(data){
     let theHouseNumber =  window.location.search //searches the URL
     let i = theHouseNumber.slice(1); //slices our the '?'
     let housePrice = data[i].price;
-    let details = data[i].fname + " " + data[i].lname;
+    let houseSqft = data[i].sqft;
+    let details = data[i].fname + " " + data[i].lname + "<br>Bathrooms: " + data[i].baths + " Bedrooms: " + data[i].beds + "<br>Year built: " + data[i].yrblt.slice(0, 4) + "<br>Square feet: " + houseSqft.toLocaleString();
     let address = data[i].street + ", " + data[i].city + ", " + data[i].state + " " + data[i].zip ;
     let img = "<img style='max-width:100%; height:auto' src='http://3.21.225.172:8080/api/" + data[i].imageurl + "'></img>" ;
     let lister = data[i].listing + " " + data[i].phone;
