@@ -55,3 +55,19 @@ body {
 .transparent {
     background-color:transparent;
 }
+
+.table2 {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tablecell2 {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.tablerow2:nth-child(even) {
+    background-color: #dddddd;
+}

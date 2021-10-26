@@ -29,7 +29,7 @@ $(document).ready(function(){
 //this function is used to call the functions to show the images. this function will pull the JSON data
 function myList() {
     var ourRequest1 = new XMLHttpRequest();
-    ourRequest1.open('GET', 'http://3.21.225.172:8080/api/realestate/getByRowAmount?rows=12')
+    ourRequest1.open('GET', 'http://localhost:8080/api/realestate/getByRowAmount?rows=12')
     ourRequest1.onload = function () {
         const ourData1 = JSON.parse(ourRequest1.responseText);
         renderHTML5(ourData1);
@@ -48,12 +48,12 @@ function renderHTML5(data){
     var listingEnd = '</tr>';
     var tableEnd = "</table>";
     var divEnd = '</div>';
-    var url = "http://3.21.225.172:8080/api/";
+    var url = "http://localhost:8080/api/";
     for (var i = 0; i < 3; i++) {
         listing += '<td><a href=' + data[i].id + '.html><img style="display:block;" width="100%" height="100%" src="' + url + data[i].imageurl + '"></a></td>';
         }
     for (var i = 3; i < 6; i++) {
-        listing2 += '<td><a href=' + data[i].id + '.html><img style="display:block;" width="100%" height="100%" src="http://3.21.225.172:8080/api/' + data[i].imageurl + '"></a></td>';
+        listing2 += '<td><a href=' + data[i].id + '.html><img style="display:block;" width="100%" height="100%" src="http://localhost:8080/api/' + data[i].imageurl + '"></a></td>';
     }
         document.getElementById("listingsHome").innerHTML= divStart + tableStart + listingStart + listing + listingEnd + listingStart + listing2 + listingEnd + tableEnd + divEnd;
 }
@@ -71,7 +71,7 @@ function update_data() {
     var divEnd = '</div>';
     const minCount = parseInt(document.getElementById("min").value);//puts the input to integer
     const maxCount = parseInt(document.getElementById("max").value);
-    const url = "http://3.21.225.172:8080/api/";
+    const url = "http://localhost:8080/api/";
 
     //check if max is less than min value
     if (maxCount < minCount) {

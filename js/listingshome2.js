@@ -28,8 +28,8 @@ $(document).ready(function(){
 
 //this function is used to call the functions to show the cards. this function will pull the JSON data
 function myDisplay() {
-    var ourRequest1 = new XMLHttpRequest();
-    ourRequest1.open('GET', 'http://3.21.225.172:8080/api/realestate/all')
+    let ourRequest1 = new XMLHttpRequest();
+    ourRequest1.open('GET', 'http://localhost:8080/realestate/all')
     ourRequest1.onload = function () {
         const ourData1 = JSON.parse(ourRequest1.responseText);
         renderHTML5(ourData1);
@@ -39,14 +39,14 @@ function myDisplay() {
 
 //this will make the cards and display them onto the page on load
 function renderHTML5(data) {
-    var ii = 0;
-    let url = "http://3.21.225.172:8080/api/"
+    let ii = 0;
+    let url = "http://localhost:8080/"
     $("#listingsHome").html("")
     for (let i = 0; i < data.length; i++) {
         let housePrice = data[i].price;
-        var card =
+        let card =
             '<div class="col-md-4 text-center" id="card1" style=""><div class="card backgroundWhite" style="width:300px">'
-            + '<img class="card-img-top" src="http://3.21.225.172:8080/api/' + data[i].imageurl + '" style="width:100%">'
+            + '<img class="card-img-top" src="' + url + data[i].imageurl + '" style="width:100%">'
             + '<div class="card-body">'
             + '<h5 class="darkgray"> ' + data[i].street + ", " + data[i].city + ", " + data[i].state + " " + data[i].zip + '</h5>'
             + '<p><b>$' + housePrice.toLocaleString() + "</b></p><p class='darkgray'><b>Listing Agent: </b>" + data[i].listing + " " + data[i].phone + "</p>"
@@ -65,8 +65,8 @@ window.onload = myDisplay;
 
 //this function will load when the search button is pressed. it loads the JSON data first
 function mySearch() {
-    var ourRequest1 = new XMLHttpRequest();
-    ourRequest1.open('GET', 'http://3.21.225.172:8080/api/realestate/all')
+    let ourRequest1 = new XMLHttpRequest();
+    ourRequest1.open('GET', 'http://localhost:8080/realestate/all')
     ourRequest1.onload = function () {
         const ourData1 = JSON.parse(ourRequest1.responseText);
         renderHTML6(ourData1);
@@ -78,14 +78,14 @@ function mySearch() {
 function renderHTML6(data) {
     const minCount = parseInt(document.getElementById("min").value);//puts the input to integer
     const maxCount = parseInt(document.getElementById("max").value);
-    let url = "http://3.21.225.172:8080/api/"
+    let url = "http://localhost:8080/"
     //check if max is less than min value
     if (maxCount < minCount) {
         alert("your min price is larger than your max price");
     };
     //check if there is no max value then set max to 30mil otherwise set to the max value
     if (isNaN(maxCount)) {
-        var maxUnlimited = 30000000;
+        var maxUnlimited = 300000000;
     } else {
         var maxUnlimited = maxCount;
     };
@@ -102,7 +102,7 @@ function renderHTML6(data) {
         let housePrice = data[i].price;
         var card =
             '<div class="col-md-4 text-center" id="card1" style=""><div class="card" style="width:300px">'
-            + '<img class="card-img-top" src="http://3.21.225.172:8080/api/' + data[i].imageurl + '" style="width:100%">'
+            + '<img class="card-img-top" src="' + url + data[i].imageurl + '" style="width:100%">'
             + '<div class="card-body">'
             + '<h5 class="darkgray"> ' + data[i].street + ", " + data[i].city + ", " + data[i].state + " " + data[i].zip + '</h5>'
             + '<p><b>$' + housePrice.toLocaleString() + "</b></p><p class='darkgray'><b>Listing Agent: </b>" + data[i].listing + " " + data[i].phone + "</p>"

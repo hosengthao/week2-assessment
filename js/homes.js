@@ -3,7 +3,7 @@ function myEmail(){
     let personEmail = document.getElementById("email").value;
     let charSymbol = false;
 
-    for (i = 0; i < personEmail.length; i++) {
+    for (let i = 0; i < personEmail.length; i++) {
         let emailChar = personEmail[i];
         if (emailChar == "@") {
             charSymbol = true
@@ -29,7 +29,7 @@ $(document).ready(function(){
 //this function will pull the JSON data abd call the myHome function
 function myHouse() {
     var ourRequest = new XMLHttpRequest();
-    ourRequest.open('GET', 'http://3.21.225.172:8080/api/realestate/all');
+    ourRequest.open('GET', 'http://localhost:8080/realestate/all');
     ourRequest.send();
     ourRequest.onload = function () {
         const ourData = JSON.parse(ourRequest.responseText);
@@ -46,8 +46,9 @@ function myHome(data){
     let houseSqft = data[i].sqft;
     let details = data[i].fname + " " + data[i].lname + "<br>Bathrooms: " + data[i].baths + " Bedrooms: " + data[i].beds + "<br>Year built: " + data[i].yrblt.slice(0, 4) + "<br>Square feet: " + houseSqft.toLocaleString();
     let address = data[i].street + ", " + data[i].city + ", " + data[i].state + " " + data[i].zip ;
-    let img = "<img style='max-width:100%; height:auto' src='http://3.21.225.172:8080/api/" + data[i].imageurl + "'></img>" ;
+    let img = "<img style='max-width:100%; height:auto' src='http://localhost:8080/" + data[i].imageurl + "'></img>" ;
     let lister = data[i].listing + " " + data[i].phone;
+
     //the following appends to the html that is already loaded onto the page
     $("#htmlImg").html(img);
     $("#htmlTitle").append(housePrice.toLocaleString());
